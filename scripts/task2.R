@@ -73,17 +73,21 @@ rnorm_wrapper = function(n){
   return(rnorm(n,mean=20, sd=0.1))
 }
 
+rbinom_wrapper = function(n){
+  return(rbinom(n,size=20, prob=0.1))
+}
+
 CLT = function(n, method){
   x = c(0)
   for(i in 1:1000){
     x[i] = mean(method(n))
   }
-  return(x)  
+  return(x)
 }
 
 ex4 = function(){
   n = c(1,5,10,100)
-  selected_method = rnorm_wrapper
+  selected_method = runif_wrapper
   for(i in 1:length(n)){
     range_y = CLT(n[i],method=selected_method)
     hist(range_y,main=n[i])

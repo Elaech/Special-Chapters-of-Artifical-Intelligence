@@ -32,6 +32,7 @@ reg_on_houses = function(features,p){
                                           model_summary$adj.r.squared,
                                           ols_mallows_cp(model,FULL_MODEL))
 }
+
 # GLOBALS
 HOUSES = houses_dataset()
 P = 0
@@ -77,11 +78,13 @@ main = function(){
 
 
 main()
+
 make_plots()
+
 BEST_MODELS
 
 
-
+colnames(HOUSES)
 
 
 

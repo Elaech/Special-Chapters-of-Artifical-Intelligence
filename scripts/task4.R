@@ -84,9 +84,6 @@ make_plots()
 BEST_MODELS
 
 
-colnames(HOUSES)
-
-
 
 
 

@@ -34,8 +34,7 @@ forward_selection = function(dataset){
         current_feature = features_list[index]
         current_selection[length(current_selection)+1] = current_feature
         model = lm(make_as_formula(current_selection),data=dataset)
-        p_value = summary(model)$coefficients[,4]
-        
+        p_value = summary(model)$coefficients[length(summary(model)$coefficients[,4])+1,4]
         model_worth[length(model_worth)+1] = p_value[current_feature]
       }
       else{
@@ -149,6 +148,11 @@ fs_features = forward_selection(HOUSES)
 bs_features = backward_selection(HOUSES)
 sw_features = stepwise_selection(HOUSES)
 homework4_features = c("BDR", "FLR",  "FP" ,"RMS", "ST", "LOT", "GAR", "L1", "L2")
+
+print(fs_features)
+print(bs_features)
+print(sw_features)
+print(homework4_features)
 
 fs_model = lm(make_as_formula(fs_features),data=HOUSES)
 bs_model = lm(make_as_formula(bs_features),data=HOUSES)
